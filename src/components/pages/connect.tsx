@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Linkedin, Globe, BookOpen, Mail } from "lucide-react"
+import { useLanguage } from "../../context/LanguageContext"
 
 interface ConnectData {
   linkedin: string
@@ -11,6 +12,8 @@ interface ConnectData {
 }
 
 export default function Connect() {
+  const { t } = useLanguage()
+
   const [formData, setFormData] = useState<ConnectData>({
     linkedin: "https://linkedin.com/in/dr-samuel-tadesse",
     googleScholar: "https://scholar.google.com/citations?user=example",
@@ -24,19 +27,15 @@ export default function Connect() {
   }
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <p className="text-gray-600">Manage your social profiles and links</p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-8">
+    <div className="p-4 lg:p-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-8 rounded-lg card-shadow">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Edit Links</h2>
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow">
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Edit Links")}</h2>
 
           <div className="space-y-6">
             <div>
-              <label className="form-label">LinkedIn Profile</label>
+              <label className="form-label">{t("Linkedin Profile")}</label>
               <input
                 type="url"
                 name="linkedin"
@@ -48,7 +47,7 @@ export default function Connect() {
             </div>
 
             <div>
-              <label className="form-label">Google Scholar</label>
+              <label className="form-label">{t("googleScholar")}</label>
               <input
                 type="url"
                 name="googleScholar"
@@ -60,7 +59,7 @@ export default function Connect() {
             </div>
 
             <div>
-              <label className="form-label">ResearchGate</label>
+              <label className="form-label">{t("researchGate")}</label>
               <input
                 type="url"
                 name="researchGate"
@@ -72,7 +71,7 @@ export default function Connect() {
             </div>
 
             <div>
-              <label className="form-label">Personal Website</label>
+              <label className="form-label">{t("personalWebsite")}</label>
               <input
                 type="url"
                 name="personalWebsite"
@@ -83,13 +82,13 @@ export default function Connect() {
               />
             </div>
 
-            <button className="btn-primary w-full">Save Changes</button>
+            <button className="btn-primary w-full">{t("Save Changes")}</button>
           </div>
         </div>
 
         {/* Right Side - Preview */}
-        <div className="bg-white p-8 rounded-lg card-shadow sticky top-8">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Connect With Me</h2>
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8">
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Connect With Me")}</h2>
 
           <div className="bg-gradient-to-b from-blue-700 to-blue-900 rounded-lg p-8">
             <div className="grid grid-cols-2 gap-4">
@@ -150,7 +149,7 @@ export default function Connect() {
                   rel="noopener noreferrer"
                   className="block text-white hover:text-blue-100 text-sm truncate"
                 >
-                  LinkedIn Profile
+                  {t("linkedinProfile")}
                 </a>
               )}
               {formData.googleScholar && (
@@ -160,7 +159,7 @@ export default function Connect() {
                   rel="noopener noreferrer"
                   className="block text-white hover:text-blue-100 text-sm truncate"
                 >
-                  Google Scholar
+                  {t("googleScholar")}
                 </a>
               )}
               {formData.researchGate && (
@@ -170,7 +169,7 @@ export default function Connect() {
                   rel="noopener noreferrer"
                   className="block text-white hover:text-blue-100 text-sm truncate"
                 >
-                  ResearchGate Profile
+                  {t("researchGateProfile")}
                 </a>
               )}
               {formData.personalWebsite && (
@@ -180,7 +179,7 @@ export default function Connect() {
                   rel="noopener noreferrer"
                   className="block text-white hover:text-blue-100 text-sm truncate"
                 >
-                  Personal Website
+                  {t("personalWebsite")}
                 </a>
               )}
             </div>

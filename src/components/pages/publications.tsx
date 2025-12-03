@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Trash2, Plus } from "lucide-react"
+import { useLanguage } from "../../context/LanguageContext"
 
 interface Publication {
   id: string
@@ -12,6 +13,8 @@ interface Publication {
 }
 
 export default function Publications() {
+  const { t } = useLanguage()
+
   const [publications, setPublications] = useState<Publication[]>([
     {
       id: "1",
@@ -53,15 +56,11 @@ export default function Publications() {
   }
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <p className="text-gray-600">Manage your research publications</p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-8">
+    <div className="p-4 lg:p-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-8 rounded-lg card-shadow max-h-screen overflow-y-auto">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Add Publication</h2>
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow max-h-screen overflow-y-auto">
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Add Publication")}</h2>
 
           <div className="space-y-4 mb-6">
             {publications.map((pub) => (
@@ -86,27 +85,27 @@ export default function Publications() {
           <div className="space-y-3 p-4 bg-blue-50 rounded-lg">
             <input
               type="text"
-              placeholder="Publication Title"
+              placeholder={t("Publication Title")}
               value={newPublication.title}
               onChange={(e) => setNewPublication({ ...newPublication, title: e.target.value })}
               className="form-input"
             />
             <input
               type="text"
-              placeholder="Journal / Conference / Publisher"
+              placeholder={t("Journal Conference Publisher")}
               value={newPublication.journal}
               onChange={(e) => setNewPublication({ ...newPublication, journal: e.target.value })}
               className="form-input"
             />
             <input
               type="number"
-              placeholder="Year"
+              placeholder={t("year")}
               value={newPublication.year}
               onChange={(e) => setNewPublication({ ...newPublication, year: Number.parseInt(e.target.value) })}
               className="form-input"
             />
             <textarea
-              placeholder="Description"
+              placeholder={t("Description")}
               value={newPublication.description}
               onChange={(e) => setNewPublication({ ...newPublication, description: e.target.value })}
               className="form-input resize-none"
@@ -114,16 +113,16 @@ export default function Publications() {
             />
             <button onClick={addPublication} className="btn-primary w-full flex items-center justify-center gap-2">
               <Plus size={18} />
-              Add Publication
+              {t("Add Publication")}
             </button>
           </div>
 
-          <button className="btn-primary w-full mt-8">Save Changes</button>
+          <button className="btn-primary w-full mt-8">{t("saveChanges")}</button>
         </div>
 
         {/* Right Side - List Preview */}
-        <div className="bg-white p-8 rounded-lg card-shadow sticky top-8 max-h-screen overflow-y-auto">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Publications List</h2>
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8 max-h-screen overflow-y-auto">
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Publications List")}</h2>
 
           <div className="space-y-4">
             {publications.length > 0 ? (
@@ -148,7 +147,7 @@ export default function Publications() {
                 </div>
               ))
             ) : (
-              <p className="text-gray-500 text-center py-8">No publications added yet</p>
+              <p className="text-gray-500 text-center py-8">{t("No Publications Yet")}</p>
             )}
           </div>
         </div>

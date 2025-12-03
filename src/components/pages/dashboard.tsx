@@ -1,8 +1,11 @@
 "use client"
 
-import { Download, Calendar, AlertCircle, TrendingUp } from "lucide-react"
+import { Calendar, AlertCircle, TrendingUp } from "lucide-react"
+import { useLanguage } from "../../context/LanguageContext"
 
 export default function Dashboard() {
+  const { t } = useLanguage()
+
   const upcomingEvents = [
     {
       id: 1,
@@ -50,12 +53,8 @@ export default function Dashboard() {
 
   return (
     <div className="p-8">
-      <div className="mb-8">
-        <p className="text-gray-600">Welcome to your staff portal</p>
-      </div>
-
       {/* Quick Stats */}
-      <div className="grid grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
         <div className="bg-white p-6 rounded-lg card-shadow">
           <div className="flex items-center justify-between">
             <div>
@@ -97,11 +96,11 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Upcoming Events */}
         <div className="bg-white p-6 rounded-lg card-shadow">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-blue-900">Upcoming Events</h2>
+            <h2 className="text-xl font-bold text-blue-900">{t("upcomingEvents")}</h2>
             <Calendar size={24} className="text-blue-700" />
           </div>
           <div className="space-y-4">
@@ -120,7 +119,7 @@ export default function Dashboard() {
         {/* Announcements */}
         <div className="bg-white p-6 rounded-lg card-shadow">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-blue-900">Announcements</h2>
+            <h2 className="text-xl font-bold text-blue-900">{t("announcements")}</h2>
             <AlertCircle size={24} className="text-blue-700" />
           </div>
           <div className="space-y-4">
@@ -143,10 +142,10 @@ export default function Dashboard() {
 
       {/* Download CV Button */}
       <div className="mt-8">
-        <button className="btn-primary flex items-center gap-2">
+        {/* <button className="btn-primary flex items-center gap-2">
           <Download size={20} />
           Download CV
-        </button>
+        </button> */}
       </div>
     </div>
   )

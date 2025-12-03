@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState, useRef } from "react"
 import { Upload, Mail, Phone, MapPin, Download } from "lucide-react"
+import { useLanguage } from "../../context/LanguageContext"
 
 interface ProfileFormData {
   fullName: string
@@ -18,6 +19,8 @@ interface ProfileFormData {
 }
 
 export default function Profile() {
+  const { t } = useLanguage()
+
   const [formData, setFormData] = useState<ProfileFormData>({
     fullName: "Dr. Samuel Tadesse",
     title: "Associate Professor",
@@ -57,29 +60,25 @@ export default function Profile() {
   }
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <p className="text-gray-600">Manage your professional information</p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-8">
+    <div className="p-4 lg:p-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Left Side - Form */}
         <div className="bg-white p-8 rounded-lg card-shadow">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Edit Profile</h2>
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Edit Profile")}</h2>
 
           <div className="space-y-6">
             <div>
-              <label className="form-label">Full Name</label>
+              <label className="form-label">{t("fullName")}</label>
               <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="form-input" />
             </div>
 
             <div>
-              <label className="form-label">Title / Rank</label>
+              <label className="form-label">{t("titleRank")}</label>
               <input type="text" name="title" value={formData.title} onChange={handleChange} className="form-input" />
             </div>
 
             <div>
-              <label className="form-label">Department</label>
+              <label className="form-label">{t("department")}</label>
               <select name="department" value={formData.department} onChange={handleChange} className="form-input">
                 <option>Electrical Engineering</option>
                 <option>Computer Engineering</option>
@@ -88,56 +87,56 @@ export default function Profile() {
             </div>
 
             <div>
-              <label className="form-label">Role</label>
+              <label className="form-label">{t("role")}</label>
               <input type="text" name="role" value={formData.role} onChange={handleChange} className="form-input" />
             </div>
 
             <div>
-              <label className="form-label">Office Location</label>
+              <label className="form-label">{t("officeLocation")}</label>
               <input type="text" name="officeLocation" value={formData.officeLocation} onChange={handleChange} className="form-input" />
             </div>
 
             <div>
-              <label className="form-label">Email</label>
+              <label className="form-label">{t("email")}</label>
               <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-input" />
             </div>
 
             <div>
-              <label className="form-label">Phone</label>
+              <label className="form-label">{t("phone")}</label>
               <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="form-input" />
             </div>
 
             <div>
-              <label className="form-label">Profile Image</label>
+              <label className="form-label">{t("profileImage")}</label>
               <div
                 className="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center cursor-pointer hover:border-blue-500 transition-colors"
                 onClick={() => imageInputRef.current?.click()}
               >
                 <Upload size={28} className="mx-auto text-blue-600 mb-2" />
-                <p className="text-sm text-gray-600">Click to upload profile image</p>
+                <p className="text-sm text-gray-600">{t("clickToUploadProfileImage")}</p>
                 <input type="file" ref={imageInputRef} onChange={handleImageUpload} accept="image/*" className="hidden" />
               </div>
             </div>
 
             <div>
-              <label className="form-label">CV (PDF)</label>
+              <label className="form-label">{t("cvPdf")}</label>
               <div
                 className="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center cursor-pointer hover:border-blue-500 transition-colors"
                 onClick={() => cvInputRef.current?.click()}
               >
                 <Upload size={28} className="mx-auto text-blue-600 mb-2" />
-                <p className="text-sm text-gray-600">Click to upload CV</p>
+                <p className="text-sm text-gray-600">{t("clickToUploadCv")}</p>
                 <input type="file" ref={cvInputRef} onChange={handleCVUpload} accept=".pdf" className="hidden" />
               </div>
             </div>
 
-            <button className="btn-primary w-full">Save Changes</button>
+            <button className="btn-primary w-full">{t("Save Changes")}</button>
           </div>
         </div>
 
         {/* Right Side - Preview */}
         <div className="bg-white p-8 rounded-lg card-shadow sticky top-8">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Preview</h2>
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Preview")}</h2>
 
           <div className="bg-gradient-to-b from-blue-700 to-blue-900 rounded-lg p-6 text-white">
             <div className="mb-6">
@@ -156,19 +155,19 @@ export default function Profile() {
 
           <div className="mt-6 space-y-4">
             <div className="pb-4 border-b border-gray-200">
-              <p className="text-sm text-gray-600 font-semibold">Department</p>
+              <p className="text-sm text-gray-600 font-semibold">{t("department")}</p>
               <p className="text-gray-800 mt-1">{formData.department}</p>
             </div>
 
             <div className="pb-4 border-b border-gray-200">
-              <p className="text-sm text-gray-600 font-semibold">Role</p>
+              <p className="text-sm text-gray-600 font-semibold">{t("role")}</p>
               <p className="text-gray-800 mt-1">{formData.role}</p>
             </div>
 
             <div className="pb-4 border-b border-gray-200 flex items-start gap-3">
               <MapPin size={16} className="text-blue-700 mt-1 flex-shrink-0" />
               <div>
-                <p className="text-sm text-gray-600 font-semibold">Office</p>
+                <p className="text-sm text-gray-600 font-semibold">{t("office")}</p>
                 <p className="text-gray-800">{formData.officeLocation}</p>
               </div>
             </div>
@@ -176,7 +175,7 @@ export default function Profile() {
             <div className="pb-4 border-b border-gray-200 flex items-start gap-3">
               <Mail size={16} className="text-blue-700 mt-1 flex-shrink-0" />
               <div>
-                <p className="text-sm text-gray-600 font-semibold">Email</p>
+                <p className="text-sm text-gray-600 font-semibold">{t("email")}</p>
                 <a href={`mailto:${formData.email}`} className="text-blue-600 hover:underline">
                   {formData.email}
                 </a>
@@ -186,7 +185,7 @@ export default function Profile() {
             <div className="pb-4 flex items-start gap-3">
               <Phone size={16} className="text-blue-700 mt-1 flex-shrink-0" />
               <div>
-                <p className="text-sm text-gray-600 font-semibold">Phone</p>
+                <p className="text-sm text-gray-600 font-semibold">{t("phone")}</p>
                 <a href={`tel:${formData.phone}`} className="text-blue-600 hover:underline">
                   {formData.phone}
                 </a>
@@ -198,7 +197,7 @@ export default function Profile() {
             {formData.cv && (
               <button className="btn-secondary w-full flex items-center justify-center gap-2">
                 <Download size={18} />
-                Download CV
+                {t("downloadCv")}
               </button>
             )}
           </div>

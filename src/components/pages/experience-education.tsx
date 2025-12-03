@@ -106,14 +106,10 @@ export default function ExperienceEducation() {
   }
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <p className="text-gray-600">Manage your professional background</p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-8">
+    <div className="p-4 lg:p-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-8 rounded-lg card-shadow max-h-screen overflow-y-auto">
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow max-h-screen overflow-y-auto">
           <h2 className="text-xl font-bold text-blue-900 mb-6">Edit Experience & Education</h2>
 
           {/* Experience Section */}
@@ -251,7 +247,7 @@ export default function ExperienceEducation() {
         </div>
 
         {/* Right Side - Timeline Preview */}
-        <div className="bg-white p-8 rounded-lg card-shadow sticky top-8 max-h-screen overflow-y-auto">
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8 max-h-screen overflow-y-auto">
           <h2 className="text-xl font-bold text-blue-900 mb-6">Timeline Preview</h2>
 
           <div className="space-y-6">

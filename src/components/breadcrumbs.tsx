@@ -11,8 +11,6 @@ export type PageType =
   | "experience"
   | "publications"
   | "connect"
-  | "events"
-  | "announcements"
 
 export default function Breadcrumbs({
   currentPage,
@@ -39,10 +37,6 @@ export default function Breadcrumbs({
         return t("publications")
       case "connect":
         return t("connect")
-      case "events":
-        return t("upcomingEvents")
-      case "announcements":
-        return t("announcements")
       default:
         return ""
     }

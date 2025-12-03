@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { X, Plus } from "lucide-react"
+import { useLanguage } from "../../context/LanguageContext"
 
 const PRESET_EXPERTISE = [
   "Machine Learning",
@@ -24,6 +25,7 @@ const PRESET_EXPERTISE = [
 ]
 
 export default function AreasOfExpertise() {
+  const { t } = useLanguage()
   const [expertise, setExpertise] = useState<string[]>(["Machine Learning", "Cloud Computing", "Software Engineering"])
   const [inputValue, setInputValue] = useState("")
   const [filteredOptions, setFilteredOptions] = useState<string[]>([])
@@ -68,18 +70,14 @@ export default function AreasOfExpertise() {
   }
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <p className="text-gray-600">Select or add your areas of specialization</p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-8">
+    <div className="p-4 lg:p-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-8 rounded-lg card-shadow">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Select Expertise</h2>
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow">
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Select Expertise")}</h2>
 
           <div>
-            <label className="form-label">Areas of Expertise</label>
+            <label className="form-label">{t("Areas Of Expertise")}</label>
             <div className="relative">
               <div className="form-input p-3 cursor-text flex flex-wrap gap-2 items-center min-h-12">
                 {expertise.map((item) => (
@@ -98,7 +96,7 @@ export default function AreasOfExpertise() {
                   value={inputValue}
                   onChange={handleInputChange}
                   onFocus={() => setShowDropdown(true)}
-                  placeholder="Type to search or add..."
+                  placeholder={t("typeToSearchOrAdd")}
                   className="flex-1 outline-none bg-transparent text-sm min-w-32"
                 />
               </div>
@@ -123,25 +121,25 @@ export default function AreasOfExpertise() {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Add custom expertise..."
+                placeholder={t("addCustomExpertise")}
                 className="form-input flex-1"
               />
               <button onClick={handleCustomAdd} className="btn-primary flex items-center gap-2">
                 <Plus size={18} />
-                Add
+                {t("add")}
               </button>
             </div>
           </div>
 
-          <button className="btn-primary w-full mt-8">Save Changes</button>
+          <button className="btn-primary w-full mt-8">{t("Save Changes")}</button>
         </div>
 
         {/* Right Side - Preview */}
-        <div className="bg-white p-8 rounded-lg card-shadow sticky top-8">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Preview</h2>
+        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8">
+          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Preview")}</h2>
 
           <div className="bg-gradient-to-b from-blue-700 to-blue-900 rounded-lg p-8">
-            <h3 className="text-xl font-bold text-white mb-6">Expertise Areas</h3>
+            <h3 className="text-xl font-bold text-white mb-6">{t("expertiseAreas")}</h3>
             <div className="flex flex-wrap gap-3">
               {expertise.length > 0 ? (
                 expertise.map((item) => (
@@ -150,7 +148,7 @@ export default function AreasOfExpertise() {
                   </span>
                 ))
               ) : (
-                <p className="text-blue-100">No expertise areas added yet</p>
+                <p className="text-blue-100">{t("noExpertiseYet")}</p>
               )}
             </div>
           </div>
