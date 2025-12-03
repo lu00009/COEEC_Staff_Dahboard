@@ -26,7 +26,7 @@ export default function Sidebar({ currentPage, onPageChange }: SidebarProps) {
   return (
     <aside className="bg-white border-gray-400 overflow-y-auto w-64 hidden md:block shadow-sm">
       {/* Desktop sidebar */}
-      <div className="h-15 flex flex-col justify-center px-6 border-gray-400 shadow-sm">
+      <div className="h-13 flex flex-col justify-center px-6 border-gray-400 shadow-sm">
         <div className="flex items-center gap-3">
           <img
             src="https://kehulum.com/ups_asset/b/100/kehulumcom-1740387324e7a880e22a.png"

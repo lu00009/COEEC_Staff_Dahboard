@@ -99,7 +99,7 @@ export default function App() {
         {/* Main content */}
         <main className="flex-1 flex flex-col overflow-auto">
           {/* Desktop top nav line with shadow and LanguageSwitcher top-right */}
-          <div className="hidden md:flex sticky top-0 z-30 bg-white border-b border-gray-300 shadow-sm px-4 py-2 justify-end">
+          <div className="hidden md:flex sticky top-0 z-30 bg-white border-gray-300 shadow-sm px-4 py-2 justify-end">
             <LanguageSwitcher />
           </div>
           <Breadcrumbs currentPage={currentPage} onNavigate={handleNavigate} />
