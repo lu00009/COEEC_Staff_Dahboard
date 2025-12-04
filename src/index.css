@@ -3,7 +3,7 @@
 
 :root {
   /* ASTU COEEC color palette */
-  --primary: #1e4d7b;
+  --primary: #17A2B8;
   --primary-dark: #16384d;
   --accent: #ff5722;
   --accent-light: #ffb399;
@@ -58,6 +58,9 @@ body {
 
   .sidebar-item-active {
     @apply bg-blue-100 border-l-4 border-blue-700 bg-blue-50;
+    background-color: color-mix(in oklab, var(--primary) 15%, white);
+    border-left: 4px solid var(--primary);
+    color: var(--primary);
   }
 
   .card-shadow {
@@ -65,15 +68,32 @@ body {
   }
 
   .btn-primary {
-    @apply px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors;
+    @apply px-4 py-2 text-white rounded-lg transition-colors;
+    background-color: var(--primary);
+  }
+
+  .btn-primary:hover {
+    background-color: color-mix(in oklab, var(--primary) 85%, black);
   }
 
   .btn-secondary {
-    @apply px-4 py-2 border border-blue-700 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors;
+    @apply px-4 py-2 rounded-lg transition-colors;
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: color-mix(in oklab, var(--primary) 15%, white);
   }
 
   .form-input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-700 focus:ring-1 focus:ring-blue-700;
+    @apply w-full px-3 py-2 border rounded-lg focus:outline-none;
+    border-color: var(--border-gray);
+    --ring-color: var(--primary);
+  }
+  .form-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
   }
 
   .form-label {
@@ -81,6 +101,9 @@ body {
   }
 
   .tag {
-    @apply inline-block px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm mr-2 mb-2 border border-blue-200;
+    @apply inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2;
+    background-color: color-mix(in oklab, var(--primary) 15%, white);
+    color: var(--primary);
+    border: 1px solid var(--primary);
   }
 }

@@ -59,9 +59,9 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Years of Experience</p>
-              <p className="text-3xl font-bold text-blue-700 mt-2">12</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--primary)' }}>12</p>
             </div>
-            <TrendingUp size={32} className="text-blue-200" />
+            <TrendingUp size={32} style={{ color: 'color-mix(in oklab, var(--primary) 30%, white)' }} />
           </div>
         </div>
 
@@ -69,9 +69,9 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Publications</p>
-              <p className="text-3xl font-bold text-blue-700 mt-2">24</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--primary)' }}>24</p>
             </div>
-            <TrendingUp size={32} className="text-blue-200" />
+            <TrendingUp size={32} style={{ color: 'color-mix(in oklab, var(--primary) 30%, white)' }} />
           </div>
         </div>
 
@@ -79,9 +79,9 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Projects Completed</p>
-              <p className="text-3xl font-bold text-blue-700 mt-2">48</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--primary)' }}>48</p>
             </div>
-            <TrendingUp size={32} className="text-blue-200" />
+            <TrendingUp size={32} style={{ color: 'color-mix(in oklab, var(--primary) 30%, white)' }} />
           </div>
         </div>
 
@@ -89,9 +89,9 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Contact Methods</p>
-              <p className="text-3xl font-bold text-blue-700 mt-2">3</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--primary)' }}>3</p>
             </div>
-            <TrendingUp size={32} className="text-blue-200" />
+            <TrendingUp size={32} style={{ color: 'color-mix(in oklab, var(--primary) 30%, white)' }} />
           </div>
         </div>
       </div>
@@ -100,8 +100,8 @@ export default function Dashboard() {
         {/* Upcoming Events */}
         <div className="bg-white p-6 rounded-lg card-shadow">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-blue-900">{t("upcomingEvents")}</h2>
-            <Calendar size={24} className="text-blue-700" />
+            <h2 className="text-xl font-bold" style={{ color: 'var(--primary-dark)' }}>{t("upcomingEvents")}</h2>
+            <Calendar size={24} style={{ color: 'var(--primary)' }} />
           </div>
           <div className="space-y-4">
             {upcomingEvents.map((event) => (
@@ -119,8 +119,8 @@ export default function Dashboard() {
         {/* Announcements */}
         <div className="bg-white p-6 rounded-lg card-shadow">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-blue-900">{t("announcements")}</h2>
-            <AlertCircle size={24} className="text-blue-700" />
+            <h2 className="text-xl font-bold" style={{ color: 'var(--primary-dark)' }}>{t("announcements")}</h2>
+            <AlertCircle size={24} style={{ color: 'var(--primary)' }} />
           </div>
           <div className="space-y-4">
             {announcements.map((announcement) => (
@@ -128,12 +128,21 @@ export default function Dashboard() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-800">{announcement.title}</h3>
-                    <span className="inline-block mt-2 px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded font-semibold">
+                    <span
+                      className="inline-block mt-2 px-2 py-1 text-xs rounded font-semibold"
+                      style={{
+                        backgroundColor: 'color-mix(in oklab, var(--primary) 15%, white)',
+                        color: 'var(--primary)',
+                        border: '1px solid var(--primary)'
+                      }}
+                    >
                       {announcement.category}
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">{announcement.date}</p>
+                <p className="text-xs mt-2" style={{ color: 'color-mix(in oklab, var(--primary) 50%, black)' }}>
+                  {announcement.date}
+                </p>
               </div>
             ))}
           </div>

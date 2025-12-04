@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronRight, Home as HomeIcon } from "lucide-react"
+import { Home as HomeIcon } from "lucide-react"
 import { useLanguage } from "../context/LanguageContext"
 
 export type PageType =
@@ -45,32 +45,24 @@ export default function Breadcrumbs({
   const isHome = currentPage === "dashboard"
 
   return (
-    <nav aria-label="Breadcrumb" className="w-full px-8 py-2">
-      <ol className="flex items-center text-sm text-gray-600">
-        <li className="flex items-center gap-2">
-          <button
-            className={`inline-flex items-center gap-2 hover:text-blue-700 transition-colors ${
-              isHome ? "text-blue-700 font-semibold" : ""
-            }`}
-            onClick={() => onNavigate?.("dashboard")}
-            aria-current={isHome ? "page" : undefined}
-          >
-            <HomeIcon className="w-4 h-4" />
-            <span>{labelFor("dashboard")}</span>
-          </button>
-        </li>
+    <div className="px-8 py-3">
+      <nav className="text-sm">
+        <button
+          onClick={() => onNavigate && onNavigate("dashboard")}
+          className="inline-flex items-center gap-2 transition-colors"
+          style={{ color: "var(--primary)" }}
+        >
+          <HomeIcon className="w-4 h-4" />
+          <span>{labelFor("dashboard")}</span>
+        </button>
 
+        {!isHome && <span className="mx-2 text-gray-400">/</span>}
         {!isHome && (
-          <>
-            <li className="px-2 text-gray-400" aria-hidden>
-              <ChevronRight className="w-4 h-4" />
-            </li>
-            <li className="text-orange-600 font-semibold" aria-current="page">
-              {labelFor(currentPage)}
-            </li>
-          </>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
+            {labelFor(currentPage)}
+          </span>
         )}
-      </ol>
-    </nav>
+      </nav>
+    </div>
   )
 }

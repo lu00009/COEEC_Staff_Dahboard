@@ -23,10 +23,9 @@ Over the years, I have been involved in numerous research projects, mentored cou
 
   return (
     <div className="p-4 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
-        {/* Left Side - Form */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("about")}</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="bg-white p-8 rounded-lg card-shadow">
+          <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("about")}</h2>
 
           <div>
             <label className="form-label">{t("about_description")}</label>
@@ -42,14 +41,13 @@ Over the years, I have been involved in numerous research projects, mentored cou
 
           <button className="btn-primary w-full mt-6">{t("Save Changes")}</button>
         </div>
-
-        {/* Right Side - Preview */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">{t("Preview")}</h2>
-
-          <div className="bg-gradient-to-b from-blue-700 to-blue-900 rounded-lg p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">{t("about_me")}</h3>
-            <div className="text-blue-100 leading-relaxed whitespace-pre-wrap break-words">{formData.description}</div>
+        <div className="bg-white p-8 rounded-lg card-shadow lg:sticky lg:top-8">
+          <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Preview")}</h2>
+          <div className="rounded-lg p-8" style={{ background: 'linear-gradient(180deg, color-mix(in oklab, var(--primary) 35%, black), color-mix(in oklab, var(--primary) 55%, black))' }}>
+            <h3 className="text-xl font-bold text-white mb-6">{t("about")}</h3>
+            <div className="leading-relaxed whitespace-pre-wrap break-words" style={{ color: 'color-mix(in oklab, var(--primary) 20%, white)' }}>
+              {formData.description}
+            </div>
           </div>
         </div>
       </div>

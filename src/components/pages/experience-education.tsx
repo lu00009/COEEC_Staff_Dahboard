@@ -110,31 +110,32 @@ export default function ExperienceEducation() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
         {/* Left Side - Form */}
         <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow max-h-screen overflow-y-auto">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Edit Experience & Education</h2>
+          <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>Edit Experience & Education</h2>
 
           {/* Experience Section */}
           <div className="mb-8">
-            <h3 className="text-lg font-bold text-blue-800 mb-4">Experience</h3>
+            <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--primary-dark)' }}>Experience</h3>
             <div className="space-y-4 mb-6">
               {experiences.map((exp) => (
-                <div key={exp.id} className="bg-gray-50 p-4 rounded-lg">
+                <div key={exp.id} className="p-4 rounded-lg" style={{ backgroundColor: 'var(--bg-light)' }}>
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <p className="font-semibold text-gray-800">{exp.position}</p>
                       <p className="text-sm text-gray-600">{exp.organization}</p>
                     </div>
-                    <button onClick={() => deleteExperience(exp.id)} className="text-red-600 hover:bg-red-50 p-2 rounded">
+                    <button onClick={() => deleteExperience(exp.id)} className="p-2 rounded" style={{ color: 'var(--destructive)' }}>
                       <Trash2 size={18} />
                     </button>
                   </div>
-                  <p className="text-xs text-gray-500">
-                    {exp.startYear} - {exp.isPresent ? "Present" : exp.endYear}
+                  <p className="text-xs font-semibold" style={{ color: 'var(--primary)' }}>
+                    {exp.startYear} - {exp.isPresent ? 'Present' : exp.endYear}
                   </p>
+                  {exp.description && <p className="text-sm text-gray-700 mt-2">{exp.description}</p>}
                 </div>
               ))}
             </div>
 
-            <div className="space-y-3 p-4 bg-blue-50 rounded-lg">
+            <div className="space-y-3 p-4 rounded-lg" style={{ backgroundColor: 'color-mix(in oklab, var(--primary) 12%, white)' }}>
               <input
                 type="text"
                 placeholder="Position Title"
@@ -196,25 +197,25 @@ export default function ExperienceEducation() {
 
           {/* Education Section */}
           <div>
-            <h3 className="text-lg font-bold text-blue-800 mb-4">Education</h3>
+            <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--primary-dark)' }}>Education</h3>
             <div className="space-y-4 mb-6">
               {education.map((edu) => (
-                <div key={edu.id} className="bg-gray-50 p-4 rounded-lg">
+                <div key={edu.id} className="p-4 rounded-lg" style={{ backgroundColor: 'var(--bg-light)' }}>
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <p className="font-semibold text-gray-800">{edu.degree}</p>
                       <p className="text-sm text-gray-600">{edu.institution}</p>
                     </div>
-                    <button onClick={() => deleteEducation(edu.id)} className="text-red-600 hover:bg-red-50 p-2 rounded">
+                    <button onClick={() => deleteEducation(edu.id)} className="p-2 rounded" style={{ color: 'var(--destructive)' }}>
                       <Trash2 size={18} />
                     </button>
                   </div>
-                  <p className="text-xs text-gray-500">{edu.year}</p>
+                  <p className="text-xs font-semibold" style={{ color: 'var(--primary)' }}>{edu.year}</p>
                 </div>
               ))}
             </div>
 
-            <div className="space-y-3 p-4 bg-blue-50 rounded-lg">
+            <div className="space-y-3 p-4 rounded-lg" style={{ backgroundColor: 'color-mix(in oklab, var(--primary) 12%, white)' }}>
               <input
                 type="text"
                 placeholder="Degree Title"
@@ -248,22 +249,22 @@ export default function ExperienceEducation() {
 
         {/* Right Side - Timeline Preview */}
         <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8 max-h-screen overflow-y-auto">
-          <h2 className="text-xl font-bold text-blue-900 mb-6">Timeline Preview</h2>
+          <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>Timeline Preview</h2>
 
           <div className="space-y-6">
             {/* Experience Timeline */}
             <div>
-              <h3 className="text-lg font-bold text-blue-800 mb-4">Experience</h3>
+              <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--primary-dark)' }}>Experience</h3>
               <div className="relative pl-6">
                 {experiences.map((exp, idx) => (
                   <div key={exp.id} className="relative mb-6">
-                    <div className="absolute -left-6 top-2 w-3 h-3 rounded-full bg-blue-700"></div>
-                    {idx < experiences.length - 1 && <div className="absolute -left-5 top-5 w-0.5 h-16 bg-blue-300"></div>}
-                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <div className="absolute -left-6 top-2 w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--primary)' }}></div>
+                    {idx < experiences.length - 1 && <div className="absolute -left-5 top-5 w-0.5 h-16" style={{ backgroundColor: 'color-mix(in oklab, var(--primary) 40%, white)' }}></div>}
+                    <div className="p-4 rounded-lg border" style={{ backgroundColor: 'color-mix(in oklab, var(--primary) 10%, white)', borderColor: 'color-mix(in oklab, var(--primary) 30%, white)' }}>
                       <h4 className="font-bold text-gray-800">{exp.position}</h4>
                       <p className="text-sm text-gray-600">{exp.organization}</p>
-                      <p className="text-xs text-blue-700 font-semibold mt-2">
-                        {exp.startYear} - {exp.isPresent ? "Present" : exp.endYear}
+                      <p className="text-xs font-semibold mt-2" style={{ color: 'var(--primary)' }}>
+                        {exp.startYear} - {exp.isPresent ? 'Present' : exp.endYear}
                       </p>
                       {exp.description && <p className="text-sm text-gray-700 mt-2">{exp.description}</p>}
                     </div>
@@ -274,16 +275,16 @@ export default function ExperienceEducation() {
 
             {/* Education Timeline */}
             <div>
-              <h3 className="text-lg font-bold text-blue-800 mb-4">Education</h3>
+              <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--primary-dark)' }}>Education</h3>
               <div className="relative pl-6">
                 {education.map((edu, idx) => (
                   <div key={edu.id} className="relative mb-6">
-                    <div className="absolute -left-6 top-2 w-3 h-3 rounded-full bg-orange-500"></div>
-                    {idx < education.length - 1 && <div className="absolute -left-5 top-5 w-0.5 h-16 bg-orange-300"></div>}
-                    <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                    <div className="absolute -left-6 top-2 w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--accent)' }}></div>
+                    {idx < education.length - 1 && <div className="absolute -left-5 top-5 w-0.5 h-16" style={{ backgroundColor: 'color-mix(in oklab, var(--accent) 40%, white)' }}></div>}
+                    <div className="p-4 rounded-lg border" style={{ backgroundColor: 'color-mix(in oklab, var(--accent) 10%, white)', borderColor: 'color-mix(in oklab, var(--accent) 30%, white)' }}>
                       <h4 className="font-bold text-gray-800">{edu.degree}</h4>
                       <p className="text-sm text-gray-600">{edu.institution}</p>
-                      <p className="text-xs text-orange-700 font-semibold mt-2">{edu.year}</p>
+                      <p className="text-xs font-semibold mt-2" style={{ color: 'var(--accent)' }}>{edu.year}</p>
                     </div>
                   </div>
                 ))}
