@@ -64,7 +64,7 @@ export default function Publications() {
 
           <div className="space-y-4 mb-6">
             {publications.map((pub) => (
-              <div key={pub.id} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <div key={pub.id} className="bg-gray-50 p-4 rounded-lg border-gray-200">
                 <div className="flex justify-between items-start mb-2">
                   <div className="flex-1">
                     <p className="font-semibold text-gray-800">{pub.title}</p>
