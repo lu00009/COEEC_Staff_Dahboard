@@ -88,7 +88,7 @@ body {
 
   .form-input {
     @apply w-full px-3 py-2 border rounded-lg focus:outline-none;
-    border-color: var(--border-gray);
+    border: 1px solid #d1d5db !important; /* Tailwind gray-300 */
     --ring-color: var(--primary);
   }
   .form-input:focus {
@@ -96,12 +96,33 @@ body {
     box-shadow: 0 0 0 1px var(--primary);
   }
 
+  /* Lighten placeholder text for inputs using the shared .form-input class */
+  .form-input::placeholder {
+    color: #9ca3af !important; /* Tailwind gray-400 */
+    opacity: 1; /* Ensure consistent appearance across browsers */
+  }
+
+  /* If textareas also use .form-input, ensure their placeholder is light as well */
+  textarea.form-input::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
+  }
+
   .form-label {
-    @apply block text-sm font-semibold text-gray-700 mb-2;
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
+    color: #374151; /* text-gray-700 */
+    margin-bottom: 0.5rem; /* mb-2 */
   }
 
   .tag {
-    @apply inline-block px-3 py-1 rounded-full text-sm mr-2 mb-2;
+    display: inline-block;
+    padding: 0.25rem 0.75rem; /* px-3 py-1 */
+    border-radius: 9999px; /* rounded-full */
+    font-size: 0.875rem; /* text-sm */
+    margin-right: 0.5rem; /* mr-2 */
+    margin-bottom: 0.5rem; /* mb-2 */
     background-color: color-mix(in oklab, var(--primary) 15%, white);
     color: var(--primary);
     border: 1px solid var(--primary);

@@ -70,10 +70,11 @@ export default function AreasOfExpertise() {
   }
 
   return (
-    <div className="p-4 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+    <div className="p-4 lg:p-8 min-h-screen">
+      {/* Two-column side-by-side layout on small/medium screens and up */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow">
+        <div className="bg-white p-4 lg:p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Select Expertise")}</h2>
           <div>
             <label className="form-label">{t("Areas of Expertise")}</label>
@@ -138,11 +139,11 @@ export default function AreasOfExpertise() {
         </div>
 
         {/* Right Side - Preview */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8">
+        <div className="bg-white p-4 lg:p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Preview")}</h2>
 
-          <div className="rounded-lg p-8" style={{ background: 'linear-gradient(180deg, color-mix(in oklab, var(--primary) 35%, black), color-mix(in oklab, var(--primary) 55%, black))' }}>
-            <h3 className="text-xl font-bold text-white mb-6">{t("Expertise Areas")}</h3>
+          <div className="rounded-lg p-8" style={{ background: '#ECF6F8' }}>
+            <h3 className="text-xl font-bold text-white mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Expertise Areas")}</h3>
             <div className="flex flex-wrap gap-3">
               {expertise.length > 0 ? (
                 expertise.map((item) => (

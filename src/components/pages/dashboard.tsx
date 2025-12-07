@@ -55,7 +55,7 @@ export default function Dashboard() {
     <div className="p-8">
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white p-6 rounded-lg card-shadow">
+        <div className="bg-white p-6 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Years of Experience</p>
@@ -65,7 +65,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg card-shadow">
+        <div className="bg-white p-6 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Publications</p>
@@ -75,7 +75,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg card-shadow">
+        <div className="bg-white p-6 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Projects Completed</p>
@@ -85,7 +85,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg card-shadow">
+        <div className="bg-white p-6 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm font-semibold">Contact Methods</p>
@@ -98,14 +98,14 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Upcoming Events */}
-        <div className="bg-white p-6 rounded-lg card-shadow">
+        <div className="bg-white p-6 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold" style={{ color: 'var(--primary-dark)' }}>{t("upcomingEvents")}</h2>
             <Calendar size={24} style={{ color: 'var(--primary)' }} />
           </div>
           <div className="space-y-4">
             {upcomingEvents.map((event) => (
-              <div key={event.id} className="pb-4 border-b border-gray-200 last:border-0">
+              <div key={event.id} className="pb-4 border-gray-200 last:border-0">
                 <h3 className="font-semibold text-gray-800">{event.title}</h3>
                 <p className="text-sm text-gray-600 mt-1">
                   {event.date} • {event.time}
@@ -117,14 +117,14 @@ export default function Dashboard() {
         </div>
 
         {/* Announcements */}
-        <div className="bg-white p-6 rounded-lg card-shadow">
+        <div className="bg-white p-6 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold" style={{ color: 'var(--primary-dark)' }}>{t("announcements")}</h2>
             <AlertCircle size={24} style={{ color: 'var(--primary)' }} />
           </div>
           <div className="space-y-4">
             {announcements.map((announcement) => (
-              <div key={announcement.id} className="pb-4 border-b border-gray-200 last:border-0">
+              <div key={announcement.id} className="pb-4 border-gray-200 last:border-0">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-800">{announcement.title}</h3>

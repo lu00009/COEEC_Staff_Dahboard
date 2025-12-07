@@ -59,7 +59,7 @@ export default function Publications() {
     <div className="p-4 lg:p-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow max-h-screen overflow-y-auto">
+        <div className="bg-white p-4 lg:p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)] max-h-screen overflow-y-auto">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Add Publication")}</h2>
 
           <div className="space-y-4 mb-6">
@@ -121,7 +121,7 @@ export default function Publications() {
         </div>
 
         {/* Right Side - List Preview */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8 max-h-screen overflow-y-auto">
+        <div className="bg-white p-4 lg:p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)] lg:sticky lg:top-8 max-h-screen overflow-y-auto">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Publications List")}</h2>
 
           <div className="space-y-4">

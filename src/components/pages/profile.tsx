@@ -60,10 +60,10 @@ export default function Profile() {
   }
 
   return (
-    <div className="p-4 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="p-4 lg:p-8 min-h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-8 rounded-lg card-shadow">
+        <div className="bg-white p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Edit Profile")}</h2>
 
           <div className="space-y-6">
@@ -137,10 +137,10 @@ export default function Profile() {
         </div>
 
         {/* Right Side - Preview */}
-        <div className="bg-white p-8 rounded-lg card-shadow sticky top-8">
+        <div className="bg-white p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Preview")}</h2>
 
-          <div className="rounded-lg p-6 text-white" style={{ background: 'linear-gradient(180deg, color-mix(in oklab, var(--primary) 35%, black), color-mix(in oklab, var(--primary) 55%, black))' }}>
+          <div className="rounded-lg p-6 text-white" style={{background: '#ECF6F8', color: 'color-mix(in oklab, var(--primary) 55%, black)'}}>
             <div className="mb-6">
               {formData.profileImage ? (
                 <img src={formData.profileImage || "/placeholder.svg"} alt="Profile" className="w-32 h-32 rounded-full object-cover mx-auto border-4" style={{ borderColor: 'var(--white)' }} />
@@ -156,17 +156,17 @@ export default function Profile() {
           </div>
 
           <div className="mt-6 space-y-4">
-            <div className="pb-4 border-b border-gray-200">
+            <div className="pb-4 border-gray-200">
               <p className="text-sm font-semibold" style={{ color: 'var(--primary-dark)' }}>{t("department")}</p>
               <p className="text-gray-800 mt-1">{formData.department}</p>
             </div>
 
-            <div className="pb-4 border-b border-gray-200">
+            <div className="pb-4 border-gray-200">
               <p className="text-sm font-semibold" style={{ color: 'var(--primary-dark)' }}>{t("role")}</p>
               <p className="text-gray-800 mt-1">{formData.role}</p>
             </div>
 
-            <div className="pb-4 border-b border-gray-200 flex items-start gap-3">
+            <div className="pb-4 border-gray-200 flex items-start gap-3">
               <MapPin size={16} style={{ color: 'var(--primary)' }} className="mt-1 flex-shrink-0" />
               <div>
                 <p className="text-sm text-gray-600 font-semibold">{t("office")}</p>
@@ -174,7 +174,7 @@ export default function Profile() {
               </div>
             </div>
 
-            <div className="pb-4 border-b border-gray-200 flex items-start gap-3">
+            <div className="pb-4 border-gray-200 flex items-start gap-3">
               <Mail size={16} style={{ color: 'var(--primary)' }} className="mt-1 flex-shrink-0" />
               <div>
                 <p className="text-sm text-gray-600 font-semibold">{t("email")}</p>

@@ -24,7 +24,7 @@ Over the years, I have been involved in numerous research projects, mentored cou
   return (
     <div className="p-4 lg:p-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white p-8 rounded-lg card-shadow">
+        <div className="bg-white p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("about")}</h2>
 
           <div>
@@ -41,11 +41,11 @@ Over the years, I have been involved in numerous research projects, mentored cou
 
           <button className="btn-primary w-full mt-6">{t("Save Changes")}</button>
         </div>
-        <div className="bg-white p-8 rounded-lg card-shadow lg:sticky lg:top-8">
+        <div className="bg-white p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)] lg:sticky lg:top-8">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Preview")}</h2>
-          <div className="rounded-lg p-8" style={{ background: 'linear-gradient(180deg, color-mix(in oklab, var(--primary) 35%, black), color-mix(in oklab, var(--primary) 55%, black))' }}>
-            <h3 className="text-xl font-bold text-white mb-6">{t("about")}</h3>
-            <div className="leading-relaxed whitespace-pre-wrap break-words" style={{ color: 'color-mix(in oklab, var(--primary) 20%, white)' }}>
+        <div className="rounded-lg p-8" style={{ background: '#ECF6F8' }}>
+            <h3 className="text-xl font-bold" style={{ color: '#17A2B8' }}>{t("about")}</h3>
+            <div className="leading-relaxed whitespace-pre-wrap break-words" style={{ color: '#1A1A1A' }}>
               {formData.description}
             </div>
           </div>

@@ -48,10 +48,11 @@ export default function Connect() {
   const deleteLink = (idx: number) => setLinks((prev) => prev.filter((_, i) => i !== idx))
 
   return (
-    <div className="p-4 lg:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+    <div className="p-4 lg:p-8 min-h-screen">
+      {/* Two-column side-by-side layout on small screens and up */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
         {/* Left Side - Form */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow">
+        <div className="bg-white p-4 lg:p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Edit Links")}</h2>
 
           <div className="space-y-6">
@@ -86,9 +87,9 @@ export default function Connect() {
         </div>
 
         {/* Right Side - Preview */}
-        <div className="bg-white p-4 lg:p-8 rounded-lg card-shadow lg:sticky lg:top-8">
+        <div className="bg-white p-4 lg:p-8 rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--primary-dark)' }}>{t("Connect With Me")}</h2>
-          <div className="rounded-lg p-8" style={{ background: 'linear-gradient(180deg, color-mix(in oklab, var(--primary) 35%, black), color-mix(in oklab, var(--primary) 55%, black))' }}>
+          <div className="rounded-lg p-8" style={{ background: '#ECF6F8' }}>
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
               {links.map((l, idx) => (
                 <a key={idx} href={l.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 rounded-full bg-white transition-colors shadow-lg" style={{ color: 'var(--primary)' }}>
@@ -99,7 +100,7 @@ export default function Connect() {
 
             <div className="mt-8 pt-8 space-y-2" style={{ borderTop: '1px solid color-mix(in oklab, var(--primary) 35%, white)' }}>
               {links.map((l, idx) => (
-                <a key={idx} href={l.url} target="_blank" rel="noopener noreferrer" className="block text-sm truncate" style={{ color: 'var(--white)' }}>
+                <a key={idx} href={l.url} target="_blank" rel="noopener noreferrer" className="block text-sm truncate" style={{ color: 'var(--primary-dark)' }}>
                   {l.url}
                 </a>
               ))}
