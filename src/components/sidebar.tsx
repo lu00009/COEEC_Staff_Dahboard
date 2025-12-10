@@ -96,7 +96,10 @@ export function MobileSidebar({ currentPage, onPageChange }: SidebarProps) {
             alt="ASTU Logo"
             className="w-6 h-6 object-contain"
           />
-          <div className="font-bold" style={{ color: 'var(--primary)' }}>{t("coeec")}</div>
+          <div className="flex items-center gap-1">
+            <span className="font-bold" style={{ color: 'var(--primary)' }}>{t("coeec")}</span>
+            <span className="text-sm text-gray-700">{t("Staff")}</span>
+          </div>
         </div>
         {/* Right side: language switcher inline with menu/logo */}
         <div className="flex items-center gap-2 ">

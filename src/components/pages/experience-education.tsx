@@ -135,59 +135,69 @@ export default function ExperienceEducation() {
               ))}
             </div>
 
-            <div className="space-y-3 p-4 rounded-lg" style={{ backgroundColor: 'color-mix(in oklab, var(--primary) 12%, white)' }}>
-              <input
-                type="text"
-                placeholder="Position Title"
-                value={newExperience.position}
-                onChange={(e) => setNewExperience({ ...newExperience, position: e.target.value })}
-                className="form-input"
-              />
-              <input
-                type="text"
-                placeholder="Organization"
-                value={newExperience.organization}
-                onChange={(e) => setNewExperience({ ...newExperience, organization: e.target.value })}
-                className="form-input"
-              />
-              <div className="grid grid-cols-2 gap-2">
+            <div className="space-y-4 p-4 rounded-lg bg-white">
+              <div>
+                <label className="form-label">Position Title</label>
                 <input
-                  type="number"
-                  placeholder="Start Year"
-                  value={newExperience.startYear}
-                  onChange={(e) => setNewExperience({ ...newExperience, startYear: Number.parseInt(e.target.value) })}
+                  type="text"
+                  value={newExperience.position}
+                  onChange={(e) => setNewExperience({ ...newExperience, position: e.target.value })}
                   className="form-input"
                 />
+              </div>
+              <div>
+                <label className="form-label">Organization</label>
                 <input
-                  type="number"
-                  placeholder="End Year"
-                  disabled={newExperience.isPresent}
-                  value={newExperience.endYear || ""}
-                  onChange={(e) =>
-                    setNewExperience({
-                      ...newExperience,
-                      endYear: e.target.value ? Number.parseInt(e.target.value) : null,
-                    })
-                  }
-                  className="form-input disabled:bg-gray-100"
+                  type="text"
+                  value={newExperience.organization}
+                  onChange={(e) => setNewExperience({ ...newExperience, organization: e.target.value })}
+                  className="form-input"
                 />
               </div>
-              <label className="flex items-center gap-2 cursor-pointer">
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="form-label">Start Year</label>
+                  <input
+                    type="number"
+                    value={newExperience.startYear}
+                    onChange={(e) => setNewExperience({ ...newExperience, startYear: Number.parseInt(e.target.value) })}
+                    className="form-input"
+                  />
+                </div>
+                <div>
+                  <label className="form-label">End Year</label>
+                  <input
+                    type="number"
+                    disabled={newExperience.isPresent}
+                    value={newExperience.endYear || ""}
+                    onChange={(e) =>
+                      setNewExperience({
+                        ...newExperience,
+                        endYear: e.target.value ? Number.parseInt(e.target.value) : null,
+                      })
+                    }
+                    className="form-input disabled:bg-gray-100"
+                  />
+                </div>
+              </div>
+              <label className="form-label flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={newExperience.isPresent}
                   onChange={(e) => setNewExperience({ ...newExperience, isPresent: e.target.checked })}
                   className="cursor-pointer"
                 />
-                <span className="text-sm text-gray-700">Currently working here</span>
+                <span className="text-sm">Currently working here</span>
               </label>
-              <textarea
-                placeholder="Description"
-                value={newExperience.description}
-                onChange={(e) => setNewExperience({ ...newExperience, description: e.target.value })}
-                className="form-input resize-none"
-                rows={3}
-              />
+              <div>
+                <label className="form-label">Description</label>
+                <textarea
+                  value={newExperience.description}
+                  onChange={(e) => setNewExperience({ ...newExperience, description: e.target.value })}
+                  className="form-input resize-none"
+                  rows={3}
+                />
+              </div>
               <button onClick={addExperience} className="btn-primary w-full flex items-center justify-center gap-2">
                 <Plus size={18} />
                 Add Experience
@@ -215,28 +225,34 @@ export default function ExperienceEducation() {
               ))}
             </div>
 
-            <div className="space-y-3 p-4 rounded-lg" style={{ backgroundColor: 'color-mix(in oklab, var(--primary) 12%, white)' }}>
-              <input
-                type="text"
-                placeholder="Degree Title"
-                value={newEducation.degree}
-                onChange={(e) => setNewEducation({ ...newEducation, degree: e.target.value })}
-                className="form-input"
-              />
-              <input
-                type="text"
-                placeholder="Institution"
-                value={newEducation.institution}
-                onChange={(e) => setNewEducation({ ...newEducation, institution: e.target.value })}
-                className="form-input"
-              />
-              <input
-                type="number"
-                placeholder="Year Completed"
-                value={newEducation.year}
-                onChange={(e) => setNewEducation({ ...newEducation, year: Number.parseInt(e.target.value) })}
-                className="form-input"
-              />
+            <div className="space-y-4 p-4 rounded-lg bg-white">
+              <div>
+                <label className="form-label">Degree Title</label>
+                <input
+                  type="text"
+                  value={newEducation.degree}
+                  onChange={(e) => setNewEducation({ ...newEducation, degree: e.target.value })}
+                  className="form-input"
+                />
+              </div>
+              <div>
+                <label className="form-label">Institution</label>
+                <input
+                  type="text"
+                  value={newEducation.institution}
+                  onChange={(e) => setNewEducation({ ...newEducation, institution: e.target.value })}
+                  className="form-input"
+                />
+              </div>
+              <div>
+                <label className="form-label">Year Completed</label>
+                <input
+                  type="number"
+                  value={newEducation.year}
+                  onChange={(e) => setNewEducation({ ...newEducation, year: Number.parseInt(e.target.value) })}
+                  className="form-input"
+                />
+              </div>
               <button onClick={addEducation} className="btn-primary w-full flex items-center justify-center gap-2">
                 <Plus size={18} />
                 Add Education

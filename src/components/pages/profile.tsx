@@ -73,7 +73,7 @@ export default function Profile() {
             </div>
 
             <div>
-              <label className="form-label">{t("titleRank")}</label>
+              <label className="form-label">{t("Title Rank")}</label>
               <input type="text" name="title" value={formData.title} onChange={handleChange} className="form-input" />
             </div>
 

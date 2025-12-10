@@ -1,0 +1,7 @@
+# pnpm workspace settings for approving build scripts
+# See: https://pnpm.io/cli/approve-builds and https://pnpm.io/settings#onlybuiltdependencies
+packages:
+  - .
+onlyBuiltDependencies:
+  - esbuild
+  - "@parcel/watcher"

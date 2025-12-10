@@ -82,35 +82,43 @@ export default function Publications() {
             ))}
           </div>
 
-          <div className="space-y-3 p-4 rounded-lg" style={{ backgroundColor: 'color-mix(in oklab, var(--primary) 12%, white)' }}>
-            <input
-              type="text"
-              placeholder={t("Publication Title")}
-              value={newPublication.title}
-              onChange={(e) => setNewPublication({ ...newPublication, title: e.target.value })}
-              className="form-input"
-            />
-            <input
-              type="text"
-              placeholder={t("Journal / Conference / Publisher")}
-              value={newPublication.journal}
-              onChange={(e) => setNewPublication({ ...newPublication, journal: e.target.value })}
-              className="form-input"
-            />
-            <input
-              type="number"
-              placeholder={t("Year")}
-              value={newPublication.year}
-              onChange={(e) => setNewPublication({ ...newPublication, year: Number.parseInt(e.target.value) })}
-              className="form-input"
-            />
-            <textarea
-              placeholder={t("Description")}
-              value={newPublication.description}
-              onChange={(e) => setNewPublication({ ...newPublication, description: e.target.value })}
-              className="form-input resize-none"
-              rows={3}
-            />
+          <div className="space-y-4 p-4 rounded-lg bg-white">
+            <div>
+              <label className="form-label">{t("Publication Title")}</label>
+              <input
+                type="text"
+                value={newPublication.title}
+                onChange={(e) => setNewPublication({ ...newPublication, title: e.target.value })}
+                className="form-input"
+              />
+            </div>
+            <div>
+              <label className="form-label">{t("Journal / Conference / Publisher")}</label>
+              <input
+                type="text"
+                value={newPublication.journal}
+                onChange={(e) => setNewPublication({ ...newPublication, journal: e.target.value })}
+                className="form-input"
+              />
+            </div>
+            <div>
+              <label className="form-label">{t("Year")}</label>
+              <input
+                type="number"
+                value={newPublication.year}
+                onChange={(e) => setNewPublication({ ...newPublication, year: Number.parseInt(e.target.value) })}
+                className="form-input"
+              />
+            </div>
+            <div>
+              <label className="form-label">{t("Description")}</label>
+              <textarea
+                value={newPublication.description}
+                onChange={(e) => setNewPublication({ ...newPublication, description: e.target.value })}
+                className="form-input resize-none"
+                rows={3}
+              />
+            </div>
             <button onClick={addPublication} className="btn-primary w-full flex items-center justify-center gap-2">
               <Plus size={18} />
               {t("Add Publication")}
