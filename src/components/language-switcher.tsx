@@ -15,7 +15,7 @@ export default function LanguageSwitcher() {
   ]
 
   return (
-    <div className="bg-white border-gray-200 px-8 py-1 flex items-center justify-end">
+    <div className="bg-white border-gray-200 px-5 py-1 flex items-center justify-end">
       <div className="relative">
         <button
           aria-haspopup="listbox"
@@ -35,9 +35,8 @@ export default function LanguageSwitcher() {
                     setLanguage(l.code as any)
                     setOpen(false)
                   }}
-                  className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
-                    language === l.code ? "font-semibold" : ""
-                  }`}
+                  className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${language === l.code ? "font-semibold" : ""
+                    }`}
                 >
                   {l.label}
                 </button>

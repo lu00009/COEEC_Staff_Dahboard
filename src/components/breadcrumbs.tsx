@@ -11,6 +11,10 @@ export type PageType =
   | "experience"
   | "publications"
   | "connect"
+  | "signup"
+  | "signin"
+  | "verification"
+  | "set-password"
 
 export default function Breadcrumbs({
   currentPage,

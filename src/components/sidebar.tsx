@@ -4,10 +4,12 @@ import { LayoutDashboard, User, FileText, Zap, BookOpen, FileJson, Link2 } from 
 import { useLanguage } from "../context/LanguageContext"
 import { useState } from "react"
 import LanguageSwitcher from "./language-switcher"
+import { PageType } from "./breadcrumbs"
+import { useAuth } from "../context/AuthContext"
 
 interface SidebarProps {
   currentPage: string
-  onPageChange: (page: any) => void
+  onPageChange: (page: PageType) => void
 }
 
 export default function Sidebar({ currentPage, onPageChange }: SidebarProps) {
@@ -47,10 +49,9 @@ export default function Sidebar({ currentPage, onPageChange }: SidebarProps) {
           return (
             <button
               key={item.id}
-              onClick={() => onPageChange(item.id)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-all duration-200 ${
-                isActive ? "sidebar-item-active" : "text-gray-700 hover:bg-gray-50"
-              }`}
+              onClick={() => onPageChange(item.id as PageType)}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-all duration-200 ${isActive ? "sidebar-item-active" : "text-gray-700 hover:bg-gray-50"
+                }`}
             >
               <Icon className="w-5 h-5" />
               <span className="text-sm font-medium">{item.label}</span>
@@ -65,6 +66,7 @@ export default function Sidebar({ currentPage, onPageChange }: SidebarProps) {
 // Mobile top bar
 export function MobileSidebar({ currentPage, onPageChange }: SidebarProps) {
   const { t } = useLanguage()
+  const { logout } = useAuth()
   const [open, setOpen] = useState(false)
   const menuItems = [
     { id: "dashboard", label: t("dashboard"), icon: LayoutDashboard },
@@ -101,9 +103,34 @@ export function MobileSidebar({ currentPage, onPageChange }: SidebarProps) {
             <span className="text-sm text-gray-700">{t("Staff")}</span>
           </div>
         </div>
-        {/* Right side: language switcher inline with menu/logo */}
-        <div className="flex items-center gap-2 ">
+        {/* Right side: language switcher and logout inline with menu/logo */}
+        <div className="flex items-center gap-2">
           <LanguageSwitcher />
+          <button
+            onClick={() => {
+              logout()
+              onPageChange("signin")
+            }}
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            style={{ color: "var(--primary)" }}
+            aria-label="Logout"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+          </button>
         </div>
       </div>
       {open && (
@@ -112,7 +139,7 @@ export function MobileSidebar({ currentPage, onPageChange }: SidebarProps) {
             <button
               key={item.id}
               onClick={() => {
-                onPageChange(item.id)
+                onPageChange(item.id as PageType)
                 setOpen(false)
               }}
               className={`w-full text-left px-3 py-2 rounded mb-1 hover:bg-gray-50`}
